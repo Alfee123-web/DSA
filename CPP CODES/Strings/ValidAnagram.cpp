@@ -11,13 +11,13 @@ bool isAnagram(string str1, string str2)
     int count[26] = {0};
     for (int i = 0; i < str1.length(); i++)
     {
-        int idx = str1[i] - 'a';
+        int idx = str1[i] - 'a'; // we get the index 
         count[idx]++;
     }
     for (int i = 0; i < str2.length(); i++)
     {
         int idx = str2[i] - 'a';
-        if (count[idx] == 0)
+        if (count[idx] == 0) //zero hone ke baad bhi again we get the same character
         {
             cout << "not valid anagram\n";
             return false;

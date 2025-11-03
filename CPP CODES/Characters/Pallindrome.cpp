@@ -21,6 +21,7 @@ bool isPallindrome(char word[] , int n){
 
 int main() {
    char word[] = "racecar";
+   char word[] = "home";
    isPallindrome(word , strlen(word));
 
     return 0;

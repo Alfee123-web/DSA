@@ -50,7 +50,7 @@ void spiralMatrix(int matrix[][4], int n, int m)
   cout << endl;
 }
 
-int main()
+int main() 
 {
   int matrix[4][4] = {{1, 2, 3, 4},
                       {5, 6, 7, 8},
