@@ -12,11 +12,19 @@ void oddOReven(int num){
     }
     
 }
+
 int main() {
-   oddOReven(5);
-   oddOReven(8);
+//    oddOReven(5);
+//    oddOReven(8);
+
+//    cout<<(~6)<<endl; //-7
+//    cout<<(~0)<<endl; //-1
+   cout<<(~4)<<endl;
+   cout<<(8>>1)<<endl;
     return 0;
 }
+
+
 
 
 //LOGIC / bitmask ( & operator jis value ke saath lia hai ) = are used to access specific bits in a byte of data
@@ -29,3 +37,4 @@ int main() {
 // 6 & 1 = 000
 // 8 & 1 = 0000
 // {basicalyy har even no. ke sath 1 ka & leneg to 0 ayega}
+
