@@ -1,0 +1,5 @@
+# Ignore compiled executables
+*.exe
+
+# Ignore temporary files from VS Code extensions
+tempCodeRunnerFile.cpp
