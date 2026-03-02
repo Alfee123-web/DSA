@@ -5,6 +5,7 @@ using namespace std;
 bool compare(pair<double, int> p1, pair<double, int> p2)
 {
     return p1.first > p2.first;
+     //descending order 
     // based on their ratio value
 }
 int fractionalKnapsack(vector<int> val, vector<int> wt, int W)
@@ -19,11 +20,12 @@ int fractionalKnapsack(vector<int> val, vector<int> wt, int W)
         ratio[i] = make_pair(r, i);
     }
     sort(ratio.begin(), ratio.end(), compare); // 0(log(n))
+    //descending order 
 
     int ans = 0;
     for (int i = 0; i < n; i++) // 0(n)
     {
-        int idx = ratio[i].second; // wt , val
+        int idx = ratio[i].second; // wt , val ka index
         if (wt[idx] <= W)
         {
             ans += val[idx];
