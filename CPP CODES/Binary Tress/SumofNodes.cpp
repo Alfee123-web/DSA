@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int data)
+    {
+        this->data = data;
+        left = right = NULL;
+    }
+};
+static int idx = -1;
+Node *buildTree(vector<int> nodes)
+{
+    // this function return address/root node ka pointer
+
+    idx++; // idx++ for every recursion call
+
+    if (nodes[idx] == -1)
+    {
+        return NULL;
+    }
+    Node *currNode = new Node(nodes[idx]);
+    currNode->left = buildTree(nodes);  //  leftsubtree
+    currNode->right = buildTree(nodes); // rightsubtree
+    return currNode;
+}
+
+int sum(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    int leftS = sum(root->left);
+    int rightS = sum(root->right);
+    int currSum = leftS + rightS + root->data;
+    cout << "sum = " << currSum << endl;
+    return currSum;
+    //     sum = 5
+    // sum = 11
+    // sum = 6
+    // sum = 9
+    // sum = 21
+}
+int main()
+{
+    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+    Node *root = buildTree(nodes);
+    cout << sum(root) << endl; // 21
+    return 0;
+}
