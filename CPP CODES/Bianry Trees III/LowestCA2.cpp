@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <map>
 using namespace std;
 
 class Node
@@ -33,34 +31,34 @@ Node *buildTree(vector<int> nodes)
     currNode->right = buildTree(nodes); // rightsubtree
     return currNode;
 }
-
-void kthHelper(Node *root, int k, int currLevel)
+Node* LCA(Node *root, int n1, int n2) // pointer
 {
-
     if (root == NULL)
     {
-        return;
+        return NULL;
     }
-    if (currLevel == k)
-    {
-        cout << root->data << " ";
-        return;
+    if(root->data == n1 || root->data == n2){
+        return root;
     }
+    Node *leftLCA = LCA(root->left, n1, n2);
+    Node *rightLCA = LCA(root->right, n1, n2);
 
-    kthHelper(root->left, k, currLevel + 1);
-    kthHelper(root->right, k, currLevel + 1);
+    if (leftLCA != NULL && rightLCA != NULL)
+    {
+        return root;
+    }
+    return leftLCA == NULL ? rightLCA : leftLCA; // all 3 cases in one line
 }
-void kthlevel(Node *root, int k)
-{
-    kthHelper(root, k, 1);
-    cout << endl;
-}
+
 int main()
 {
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
     Node *root = buildTree(nodes);
-    kthlevel(root, 3); // 4 5 6
+
+    int n1 = 4, n2 = 6; // lca =1
+    cout << LCA(root, n1, n2)->data << endl;
 
     return 0;
 }
 // TC => 0(N)
+// SC =>  0(1)
